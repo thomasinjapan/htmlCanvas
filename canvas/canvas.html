@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Canvas</title>
+  <style>
+    /* Center the canvas on the page */
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+      background: #f0f0f0;
+      flex-direction: column;
+      gap: 1em;
+    }
+    
+    /* Black border so the canvas area is visible on the page */
+    #canvas {
+      border: 1px solid #000;
+      background: white;
+    }
+  </style>
+</head>
+<body>
+  <!-- Drawing area, 200 x 200 px -->
+  <canvas id="canvas" width="800" height="800"></canvas>
+  <br>
+  <!-- Shows the mouse position over the canvas (read-only) -->
+  <input type="text" id="coords" readonly>
+
+  <!-- Scripts are plain (non-module) scripts so the page works when opened
+       directly from disk. Order matters: main.js uses functions from the
+       other two files, so it must come last. -->
+  <script src="geometry.js"></script>  <!-- collision / geometry math -->
+  <script src="draw.js"></script>      <!-- drawing helpers -->
+  <script src="main.js"></script>      <!-- page setup, rendering, mouse events -->
+</body>
+</html>
